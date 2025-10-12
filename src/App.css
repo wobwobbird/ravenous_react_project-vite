@@ -3,7 +3,8 @@
   height: 100vh;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
+  overflow-y: auto;
 }
 
 .logo {
@@ -42,7 +43,7 @@
   color: #888;
 }
 
-.home {
+/* .home {
   position: absolute;
   inset: 0px;
   display: flex;
@@ -76,6 +77,178 @@
     }
   }
  }
+} */
+
+.first {
+  /* min-height: 100vh; */
+  background-color:rgba(255, 239, 213, 0.493);
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+
+  .header-bar {
+    width: 100%;
+    height: 50px;
+    background-color: rgba(218, 218, 150, 0.933);
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    P {
+      text-align: center;
+      height: 100%;
+      color: #525252;
+      font-size: 30px;
+      font-weight: 700;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+  }
+
+  .searchbar {
+    width: 100%;
+    height: 250px;
+    background-color: rgba(83, 83, 83, 0.762);
+
+
+  }
+
+  P {
+
+    
+  }
+}
+
+.searchbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  
+  .holder {
+  
+    &._filter {
+      height: 75px;
+      width: 500px;
+      /* background-color: aqua; */
+      display: flex;
+      flex-direction: row;
+      /* justify-content: space-between; */
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+
+      button {
+        background-color: aliceblue;
+        width: 200px;
+        height: 40px;
+        display: flex;
+        align-items: center;      /* Vertical centering */
+        justify-content: center;  /* Horizontal centering */
+    
+      }
+      
+    }
+    &._search {
+      height: 75px;
+      width: 800px;
+      /* background-color: aqua; */
+      display: flex;
+      flex-direction: row;
+      /* gap: 20px; */
+
+      input {
+        width: 100%;
+        margin: 10px;
+        background-color:rgba(255, 239, 213, 0.493);
+        border-radius: 8px;
+        text-align: center;
+      }
+      
+      
+      
+    }
+    &._button {
+      height: 75px;
+      width: 300px;
+      /* margin: 12.5px; */
+      padding: 12.5px;
+      
+      button {
+        width: 100%;
+        height: 100%;;
+        background-color: rgba(218, 218, 150, 0.933);
+        
+      }
+  
+    }
+  
+  
+  }
+
+}
+
+.business-list {
+  display: grid;
+  /* margin: 50px 100px; */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* gap: 20px; */
+  /* background-color: red; */
+  /* width: 100%; */
+  height: 2000px;
+
+  justify-items: center;  /* Centers items horizontally in their grid cells */
+  align-items: center;   
+}
+
+
+.business {
+  height: 450px;
+  width: 350px;
+  /* background-color: aquamarine;
+  background-color: azure; */
+  background-color: rgba(180, 180, 180, 0.088);
+  margin: 20px;
+
+  .holder {
+    padding: 20px 10px 10px 10px;
+    padding: 20px 0 10px 0;
+    /* background-color: azure; */
+
+    .smaller-text {
+      padding-top: 20px;
+
+      display: flex;
+      flex-direction: row;
+
+      font-family: "Playwrite US Modern", cursive;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 20px;;
+  
+
+      .left {
+        width: 65%;
+      }
+
+      .right {
+        width: 35%;
+        text-align: right;
+
+      }
+    }
+  }
+
+
+
+  .name {
+    font-family: "Playwrite DE Grund Guides", cursive;
+    /* font-weight: 800;
+    font-style: normal; */
+    font-size: 30px;
+  }
+
+
 }
 
 

@@ -1,17 +1,31 @@
+import RoastImage from '../assets/Roast.jpeg'
 
-
-export function Business() {
+export function Business({ className }) {
     return (
-        <div >
-            <h2>Business name</h2>
-            <span>image</span>
-            <p>name</p>
-            <p>address</p>
-            <p>state</p>
-            <p>zipcode</p>
-            <p>category</p>
-            <p>rating</p>
-            <p>reviews</p>
+        <div className={className} >
+            <img
+                src={RoastImage}
+                alt="Cosy Sunday Roast"
+            />
+            <div className='holder' >
+                <h2 className='name' >Business name</h2>
+
+                <div className='smaller-text' >
+                    <div className='left' >
+                        <p >address</p>
+                        <p >state</p>
+                        <p >zipcode</p>
+
+                    </div>
+                    <div className='right' >
+                        <p >category</p>
+                        <p >rating</p>
+                        <p >reviews</p>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
     )
 }
@@ -38,18 +52,6 @@ export function BusinessList({ children, className }) {
     return (
         <div className={className} >
             {children}
-            {/* <Business className='min-h-75 min-w-75 bg-cyan-50  ' ></Business >
-            <Business className='min-h-75 min-w-75 bg-cyan-50  ' >
-
-            </Business>
-            <Business className='w-75 h-75 bg-cyan-50  ' >
-
-            </Business>
-            <Business className='w-75 h-75 bg-cyan-50  ' >
-            </Business>
-            <Business className='w-75 h-75 bg-cyan-50  ' >
-
-            </Business> */}
         </div>
 
     )
