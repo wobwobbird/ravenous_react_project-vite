@@ -6,18 +6,21 @@ export function Searchbar({ className }) {
             <div className="holder _filter" >
                 <button 
                     className="unit"
+                    onClick={() => alert("STOP PRESSING")}
                 >Best Match</button>
                 <button
                     className="unit"
                     // onClick={() => {
                     //     setFilter("highestRated")
                     // }}
+                    onClick={() => alert("NOT FINISHED")}
                 >Highest Rated</button>
                 <button
                     className="unit"
                     // onClick={() => {
                     //     setFilter("mostReviewed")
                     // }}
+                    onClick={() => alert("Whothere, this feature is not yet built")}
                 >Most Reviewed</button>
 
             </div>
