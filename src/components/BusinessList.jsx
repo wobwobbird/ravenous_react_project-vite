@@ -2,9 +2,7 @@ import { Business } from "./Business";
 
 function BusinessList(props) {
 
-
     return (
-
         <div  
             className={props.className}
         >
@@ -17,38 +15,8 @@ function BusinessList(props) {
                     />
                 )
 
-            })}
-            {/* {props.businessAPIData.map( index => {
-                return (
-                    <Business 
-                        className="business"
-                        resturantData={props.businessAPIData[index]}
-                        key={index}
-                    />
-                )
-
-            })} */}
-            {/* <Business className="business" ></Business> */}
-            
+            })}   
         </div>
-        // <div  
-        //     className={props.className}
-        //     businessAPIData={props.businessAPIData}
-        // >
-        //     <Business className="business" ></Business>
-        //     <Business className="business" ></Business>
-        //     <Business className="business" ></Business>
-        //     <Business className="business" ></Business>
-        //     <Business className="business" ></Business>
-        //     <Business className="business" ></Business>
-        //     <Business className="business" ></Business>
-        //     <Business className="business" ></Business>
-        //     <Business className="business" ></Business>
-        //     <Business className="business" ></Business>
-        //     <Business className="business" ></Business>
-        //     <Business className="business" ></Business>
-        // </div>
-
     )
 }
 
