@@ -2,16 +2,19 @@ const apiKey = HIDDEN;
 const url = 'https://api.yelp.com/v3'
 const bizSearchEndpoint = '/businesses/search'
 
-const retrieveListings = async () => {
+export const retrieveListings = async () => {
+    console.log("API Start")
     const urlBuilder = url + bizSearchEndpoint
 
     try {
         const response = await fetch(urlBuilder, {
-            // Authorization: Bearer apiKey
-            // accept: application/json'
+            headers: {
+                Authorization: "Bearer " + apiKey,
+                accept: "application/json"
+            }
         });
         if (response.ok) {
-            const jsonResponse = await responce.json();
+            const jsonResponse = await response.json();
             console.log("Guy ", jsonResponse)
 
 
@@ -24,3 +27,4 @@ const retrieveListings = async () => {
 
 
 }
+

@@ -4,7 +4,7 @@ import Balatro from './components/Balatro'
 import BusinessList from './components/BusinessList'
 import { Searchbar } from './components/Searchbar'
 import mockDataObject from './mockData.json' 
-
+import { retrieveListings } from './utils/YelpApi.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -35,8 +35,9 @@ function App() {
       "rating": 3.1,
       "reviewCount": 956    
     }, 
-    
     mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject];
+
+  // retrieveListings();
 
   return (
     <div className='first' >
