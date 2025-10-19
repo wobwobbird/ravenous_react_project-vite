@@ -28,9 +28,6 @@ export const retrieveListings = async (searchTerm, sortOption, location) => {
             return part2
         }
         return part1
-        // location=Soho %20london %20england
-        // location=Soho%20london%20england
-        // location=Soho%20London%20England
     }
     
     const locationInput = processSearchString(location)

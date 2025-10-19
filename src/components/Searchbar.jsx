@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export function Searchbar({ className }) {
+export function Searchbar({ className, handleAPICall }) {
     const [location, setLocation ] = useState("")
     const [sortOption, setSortOption ] = useState("")
     const [searchTerm, setSearchTerm ] = useState("")
@@ -25,77 +25,64 @@ export function Searchbar({ className }) {
                 setSortOption("review_count")
             }
         }
-        // alert("Pressed")÷
     }
 
     const handleBusinessSearching = (e) => {
         setSearchTerm(e.target.value)
     }
     
-    useEffect(() => {
-        console.log(searchTerm)
-    }, [searchTerm])
+    // useEffect(() => {
+    //     console.log(searchTerm)
+    // }, [searchTerm])
 
     const handleLocationSearching = (e) => {
         setLocation(e.target.value)
     }
 
-    useEffect(() => {
-        console.log(location)
-    }, [location])
+    // useEffect(() => {
+    //     console.log(location)
+    // }, [location])
 
-    const handleSearch = () => {
-        console.log(`Searching Yelp for ${searchTerm} in ${location}, with ${!sortOption ? "no filter" : sortOption.toLowerCase() }`)
-    }
+    // const handleSearch = () => {
+    //     console.log(`Searching Yelp for ${searchTerm} in ${location}, with ${!sortOption ? "no filter" : sortOption.toLowerCase() }`)
+    // }
 
-
-    // useEffect ()
+    const isFormValid = searchTerm.trim() !== "" && location.trim() !== "";
 
     return (
         <div className={className} >
             <div className="holder _filter" >
                 <button 
-                    className={`unit ${sortOption === "Best Match" ? "active" : ""}`} 
-                    // onClick={() => alert("STOP PRESSING")}
+                    className={`unit ${sortOption === "best_match" ? "active" : ""}`} 
                     onClick={() => handleFilterSelected("Best Match")}
                     >Best Match</button>
                 <button
-                    className={`unit ${sortOption === "Highest Rated" ? "active" : ""}`}
-                    // onClick={() => {
-                        //     setFilter("highestRated")
-                        // }}
+                    className={`unit ${sortOption === "rating" ? "active" : ""}`}
                     onClick={() => handleFilterSelected("Highest Rated")}
-                    // onClick={() => alert("NOT FINISHED")}
                     >Highest Rated</button>
                 <button
-                    className={`unit ${sortOption === "Most Reviewed" ? "active" : ""}`}
-                    // onClick={() => {
-                        //     setFilter("mostReviewed")
-                        // }}
-                    // onClick={() => alert("Whothere, this feature is not yet built")}
+                    className={`unit ${sortOption === "review_count" ? "active" : ""}`}
                     onClick={() => handleFilterSelected("Most Reviewed")}
                 >Most Reviewed</button>
 
             </div>
             <div className="holder _search" >
-                {/* <p>Helloooo</p> */}
                 <input
-                    placeholder="Search Businesses"
+                    placeholder="Search Resturants"
                     onChange={handleBusinessSearching}
                 ></input>
                 <input
                     placeholder="Where?"
                     onChange={handleLocationSearching}
-                    // onChange={(e) => console.log(e)}
-                >
+                    >
                 </input>
             </div>
             <div className="holder _button" >
                 <button
-                    onClick={handleSearch}
+                    // onClick={handleSearch}
+                    onClick={() => handleAPICall(searchTerm, sortOption, location)}
+                    disabled={!isFormValid}
                 >Search</button>
-
-                
             </div>
         </div>
     )

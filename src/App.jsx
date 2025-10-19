@@ -10,16 +10,33 @@ import businessesArray from './mockDataCollection'
 function App() {
   const [count, setCount] = useState(0)
   const [apiData, setApiData] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
 
-  const useAPIData = true; // SET THIS TO USE NON API BUSINESS INFO
+  const useAPIData = true;
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   if (useAPIData) {
+  //     retrieveListings("british", "rating", "Soho London")
+  //       .then(data => {
+  //         setApiData(data)
+  //         setLoading(false)
+  //       })
+  //       .catch(error => {
+  //         console.error('Error:', error)
+  //         setLoading(false)
+  //       })
+  //   }
+  // }, [])
+
+  const handleAPICall = (searchTerm, sortOption, location) => {
+    //api call
+    console.log("API Call")
+
     if (useAPIData) {
-      retrieveListings("british", "rating", "Soho London")
+      retrieveListings(searchTerm, sortOption, location)
         .then(data => {
-          setApiData(data) // Extract the actual array from the Promise
+          setApiData(data)
           setLoading(false)
         })
         .catch(error => {
@@ -27,7 +44,8 @@ function App() {
           setLoading(false)
         })
     }
-  }, [])
+
+  }
 
   
   // const APIData = retrieveListings("british", "rating", "Soho London");
@@ -38,7 +56,10 @@ function App() {
       <div className='header-bar' >
         <p>Ravenous Darling?</p>
       </div>
-      <Searchbar className='searchbar' />
+      <Searchbar
+        className='searchbar'
+        handleAPICall={handleAPICall}
+      />
       {(useAPIData && loading) ? (
           <div>Loading</div>
         ) : (
