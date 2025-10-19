@@ -1,16 +1,48 @@
-# React + Vite
+# 🍽️ Ravenous - Restaurant Search App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React app that searches for restaurants using the Yelp API.
 
-Currently, two official plugins are available:
+This was a project for the skill path `Create a Front-End App with React` on Codecademy.com
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Search restaurants by cuisine and location
+- Sort by Best Match, Highest Rated, or Most Reviewed
+- Form validation (requires both search term and location)
+- Real-time API integration with loading states
 
-## React Compiler
+## Setup
+1. Install dependencies: `npm install`
+2. Create `.env` file with your Yelp API key: VITE_YELP_API_KEY=your_api_key_here
+3. Start dev server: `npm run dev`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+NOTE: to use without API key. Set `useAPIData = false` in App.jsx to use mock data
 
-## Expanding the ESLint configuration
+## Usage
+Enter a cuisine type and location, then click Search. Use the filter buttons to sort results.
+Example: Search Resturants: `British`, Where?: `Soho London`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+- React + Vite
+- Yelp Fusion API
+
+## Project Structure
+```
+src/
+├── components/
+│   ├── Searchbar.jsx    # Search form with validation
+│   ├── BusinessList.jsx # Restaurant list container
+│   └── Business.jsx    # Individual restaurant card
+├── utils/
+│   └── YelpApi.jsx     # API integration
+└── App.jsx             # Main component
+```
+
+## Development
+- API key is protected via environment variables
+- Form validation prevents empty searches
+
+
+## What I Learned
+This project taught me the fundamentals of HTTP requests and API integration. It also helped me to cement my understanding of React components props and passing data around the application. 
+
+I learned how to make GET requests to external APIs, handle authentication with Bearer tokens, and process JSON responses. Most importantly, I discovered how to parse complex API data structures - extracting nested objects like `business.location.address1` and arrays like `business.categories[0].title` to display meaningful information to users. The experience of working with real API data versus static mock data gave me a solid understanding of how modern web applications consume and transform external data sources
