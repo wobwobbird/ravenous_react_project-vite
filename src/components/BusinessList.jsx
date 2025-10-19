@@ -11,10 +11,10 @@ function BusinessList(props) {
                     <Business 
                         className="business"
                         resturantData={business}
-                        key={index}
+                        key={props.useAPIData ? business.id : business.name}
+                        useAPIData={props.useAPIData}
                     />
                 )
-
             })}   
         </div>
     )

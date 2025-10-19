@@ -1,53 +1,53 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import Balatro from './components/Balatro'
 import BusinessList from './components/BusinessList'
 import { Searchbar } from './components/Searchbar'
 import mockDataObject from './mockData.json' 
-import { retrieveListings } from './utils/YelpApi.jsx'
+import { retrieveListings } from './utils/YelpApi'
+import businessesArray from './mockDataCollection'
 
 function App() {
   const [count, setCount] = useState(0)
-  
-  // let businessArray = [mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject];
-  let businessArray = [
-    {...mockDataObject,
-      "name": "Grottos Pizzeria",
-      "city": "Lil VIllage",
-      "zipCode": "10001",
-      "category": "Italian",
-      "rating": 4.0,
-      "reviewCount": 9000    
-    }, 
-    {...mockDataObject,
-      "name": "Dominos",
-      "city": "Cloud",
-      "zipCode": "456289",
-      "category": "Dirty Italian",
-      "rating": 4.6,
-      "reviewCount": 900000    
-    }, 
-    {...mockDataObject,
-      "name": "BussLand",
-      "city": "BGreen",
-      "zipCode": "10001",
-      "category": "Shit",
-      "rating": 3.1,
-      "reviewCount": 956    
-    }, 
-    mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject, mockDataObject];
+  const [apiData, setApiData] = useState([])
+  const [loading, setLoading] = useState(true)
 
-  // retrieveListings();
+
+  const useAPIData = true; // SET THIS TO USE NON API BUSINESS INFO
+
+  useEffect(() => {
+    if (useAPIData) {
+      retrieveListings("british", "rating", "Soho London")
+        .then(data => {
+          setApiData(data) // Extract the actual array from the Promise
+          setLoading(false)
+        })
+        .catch(error => {
+          console.error('Error:', error)
+          setLoading(false)
+        })
+    }
+  }, [])
+
+  
+  // const APIData = retrieveListings("british", "rating", "Soho London");
+  // console.log("Promise date", APIData)
 
   return (
     <div className='first' >
       <div className='header-bar' >
         <p>Ravenous Darling?</p>
       </div>
-      <Searchbar className='searchbar' >
-      </Searchbar>
-      <BusinessList businessAPIData={businessArray} className="business-list" >
-      </BusinessList>
+      <Searchbar className='searchbar' />
+      {(useAPIData && loading) ? (
+          <div>Loading</div>
+        ) : (
+          <BusinessList 
+            businessAPIData={useAPIData ? apiData : businessesArray}
+            className="business-list"
+            useAPIData={useAPIData}
+          />
+        )}
     </div>
   )
 }

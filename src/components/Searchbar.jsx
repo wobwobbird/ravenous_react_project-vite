@@ -7,22 +7,22 @@ export function Searchbar({ className }) {
 
     const handleFilterSelected = (input) => {
         if (input === "Best Match") {
-            if (sortOption === "Best Match") {
+            if (sortOption === "best_match") {
                 setSortOption("") 
             } else {
-                setSortOption("Best Match")
+                setSortOption("best_match")
             }
         } else if (input === "Highest Rated") {
-            if (sortOption === "Highest Rated") {
+            if (sortOption === "rating") {
                 setSortOption("") 
             } else {
-                setSortOption("Highest Rated")
+                setSortOption("rating")
             }
         } else if (input === "Most Reviewed") {
-            if (sortOption === "Most Reviewed") {
+            if (sortOption === "review_count") {
                 setSortOption("") 
             } else {
-                setSortOption("Most Reviewed")
+                setSortOption("review_count")
             }
         }
         // alert("Pressed")÷
