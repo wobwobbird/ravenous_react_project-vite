@@ -46,3 +46,7 @@ src/
 This project taught me the fundamentals of HTTP requests and API integration. It also helped me to cement my understanding of React components props and passing data around the application. 
 
 I learned how to make GET requests to external APIs, handle authentication with Bearer tokens, and process JSON responses. Most importantly, I discovered how to parse complex API data structures - extracting nested objects like `business.location.address1` and arrays like `business.categories[0].title` to display meaningful information to users. The experience of working with real API data versus static mock data gave me a solid understanding of how modern web applications consume and transform external data sources
+
+## Images
+<img width="1323" height="1336" alt="Screenshot 2025-10-19 at 20 11 09" src="https://github.com/user-attachments/assets/fe428acb-f575-4b34-9e5c-8e944a5559af" />
+<img width="1324" height="1337" alt="Screenshot 2025-10-19 at 20 11 17" src="https://github.com/user-attachments/assets/9ed0ee0f-149b-4246-9439-5093cdafc818" />
